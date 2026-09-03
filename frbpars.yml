@@ -1,0 +1,34 @@
+#   -----------------------------------------------------------------
+#   This file provides parameters for FRB simulation
+#   -----------------------------------------------------------------
+
+WorkDir:    "work/"                         #   Work Directory
+
+CenFreq:    1000.0                          #	Central frequency in MHz
+NChan:      64                              #	Number of fequency channels
+DfMhz:      5.25                            #	Channel width in MHz
+TwinMs:     10.0                            #	Time window in ms
+TresMs:     0.1                             #	Time resolution in ms
+FrefMhz:    1000.0                          #	Reference frequency for scattering
+
+
+#   Parameters for Gaussian components 
+
+ComPars:                                                 
+    - {cent: 0.0, wms: 0.1, peak: 10.0, spec: 0.0, padeg: 0.0, dpadt: 10.0, lfrac: 0.8, vfrac: 0.1}
+
+
+#   Parameters for plasma screens 
+
+ScrPars:                                                 
+    - {scrtype: 'fr', rm: 10.0}
+    - {scrtype: 'sc', tms: 0.1, scind: -4.0}
+    - {scrtype: 'fr', rm: 20.0}
+    
+    
+    
+    
+    
+
+
+
