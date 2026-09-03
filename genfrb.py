@@ -6,6 +6,8 @@ import argparse as ap
 import yaml as ym
 from funlib.genfns import *
 from funlib.utils import *
+from funlib.plotfns import *
+from funlib.basicfns import *
 
 
 #	-----------------------------------------------------------------------
@@ -98,26 +100,12 @@ frbfile.close()
 
 
 
-#   Show the Pulse 
-fig, axs = plt.subplots(5, figsize=(5, 10))
-fig.suptitle('Scattered Dynamic Spectrum')
+#   Show the Pulse
+noisespec	=	estimate_noise(dynspec, tmsarr, min(tmsarr), max(tmsarr)) 
+tsdata		=	calc_profiles(dynspec, fmhzarr, tmsarr, noisespec, 0, 0)
+plot_iquvt(None, dynspec, tsdata.iquvt, fmhzarr, tmsarr, (min(tmsarr), max(tmsarr)), [5.0,8.0])
 
-# Plot the mean across all frequency channels (axis 0)
-axs[0].plot(np.nanmean(dynspec[0,:], axis=0), markersize=2 ,label='I')
-axs[0].plot(np.nanmean(dynspec[1,:], axis=0), markersize=2, label='Q')
-axs[0].plot(np.nanmean(dynspec[2,:], axis=0), markersize=2, label='U')
-axs[0].plot(np.nanmean(dynspec[3,:], axis=0), markersize=2, label='V')
 
-# Plot the 2D scattered dynamic spectrum
-axs[1].imshow(dynspec[0], aspect='auto', interpolation='none', origin='lower', cmap='plasma')
-axs[2].imshow(dynspec[1], aspect='auto', interpolation='none', origin='lower', cmap='plasma')
-axs[3].imshow(dynspec[2], aspect='auto', interpolation='none', origin='lower', cmap='plasma')
-axs[4].imshow(dynspec[3], aspect='auto', interpolation='none', origin='lower', cmap='plasma')
-axs[4].set_xlabel("Time (samples)")
-axs[4].set_ylabel("Frequency (MHz)")
-
-plt.tight_layout()
-plt.show()
 
 
 

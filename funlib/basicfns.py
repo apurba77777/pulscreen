@@ -132,10 +132,10 @@ def calc_profiles(dspec4, fmhzarr, tmsarr, noisespec, startchan, endchan):
 	qfrac		=	qtsub/itsub
 	ufrac		=	utsub/itsub
 	
-	phits[dphits>10.0]	=	np.nan
-	dphits[dphits>10.0]	=	np.nan
-	psits[dpsits>10.0]	=	np.nan
-	dpsits[dpsits>10.0]	=	np.nan
+	phits[dphits>5.0]	=	np.nan
+	dphits[dphits>5.0]	=	np.nan
+	psits[dpsits>5.0]	=	np.nan
+	dpsits[dpsits>5.0]	=	np.nan
 
 	evfrac		=	np.abs(vfrac)*np.sqrt((noistks[3]/vtsub)**2 + (noistks[0]/itsub)**2)
 	eqfrac		=	np.abs(qfrac)*np.sqrt((noistks[1]/qtsub)**2 + (noistks[0]/itsub)**2)

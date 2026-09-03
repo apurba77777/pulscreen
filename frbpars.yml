@@ -2,7 +2,7 @@
 #   This file provides parameters for FRB simulation
 #   -----------------------------------------------------------------
 
-WorkDir:    "work/"                         #   Work Directory
+WorkDir:    "../work/"                      #   Work Directory
 
 CenFreq:    1000.0                          #	Central frequency in MHz
 NChan:      64                              #	Number of fequency channels

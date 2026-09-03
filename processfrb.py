@@ -72,7 +72,7 @@ if (argus.rmrange!=None):
 	rmrange	= argus.rmrange
 
 #	Estimate Noise spectra
-noisespec	=	estimate_noise(dsdata.dspec4, dsdata.tmsarr, nmsrange[0], nmsrange[1]) # add the arguments here 
+noisespec	=	estimate_noise(dsdata.dspec4, dsdata.tmsarr, nmsrange[0], nmsrange[1]) 
 noistks		=	np.sqrt(np.nansum(noisespec**2,axis=1))/len(dsdata.fmhzarr)
 
 #	Estimate RM
